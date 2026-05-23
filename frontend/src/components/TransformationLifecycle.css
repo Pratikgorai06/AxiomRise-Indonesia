@@ -1,0 +1,157 @@
+.lifecycle-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lifecycle-header {
+  margin-bottom: 80px;
+}
+
+.lifecycle-header h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.lifecycle-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.lifecycle-timeline {
+  position: relative;
+  width: 100%;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--glass-border);
+  z-index: 1;
+}
+
+.timeline-line::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
+  animation: scanning 3s linear infinite;
+}
+
+@keyframes scanning {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.lifecycle-steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.lifecycle-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-node {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-darker);
+  border: 2px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  position: relative;
+  transition: border-color 0.3s;
+}
+
+.timeline-node-inner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.lifecycle-step:hover .timeline-node {
+  border-color: var(--primary-glow);
+}
+
+.lifecycle-step:hover .timeline-node-inner {
+  background: #fff;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.step-card {
+  width: 100%;
+  padding: 30px;
+  position: relative;
+}
+
+.step-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.step-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.1);
+  line-height: 1;
+}
+
+.step-icon {
+  color: var(--text-muted);
+}
+
+.step-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.step-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .lifecycle-steps {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .timeline-line {
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    width: 2px;
+    height: auto;
+  }
+
+  .lifecycle-step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+  }
+  
+  .timeline-node {
+    margin-bottom: 0;
+    margin-top: 20px;
+  }
+}

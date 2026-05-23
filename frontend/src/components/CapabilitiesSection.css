@@ -1,0 +1,89 @@
+.capabilities-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.capabilities-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.capabilities-header h2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.text-muted {
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  position: relative;
+}
+
+/* Background Grid Lines */
+.matrix-grid::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(rgba(31, 142, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 142, 255, 0.1) 1px, transparent 1px);
+  background-size: calc(100% / 3) calc(100% / 3);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.matrix-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.matrix-card:hover {
+  background: rgba(31, 142, 255, 0.05);
+}
+
+.matrix-icon {
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.matrix-card:hover .matrix-icon {
+  color: var(--primary-glow);
+}
+
+.matrix-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.matrix-content p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .matrix-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .matrix-grid {
+    grid-template-columns: 1fr;
+  }
+  .capabilities-header h2 {
+    font-size: 2rem;
+  }
+}
