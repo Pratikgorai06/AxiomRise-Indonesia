@@ -5,7 +5,6 @@ import { Square } from 'lucide-react';
 const ITArchitectureSection = () => {
   return (
     <section className="it-architecture-section" id="architecture">
-      <div className="blueprint-pattern-dark"></div>
       
       <div className="container">
         <div className="it-header">
