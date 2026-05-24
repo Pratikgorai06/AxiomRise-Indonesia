@@ -18,21 +18,21 @@ const Footer = () => {
                 <span className="logo-sub">Rise</span>
               </div>
             </a>
-            
+
             <p className="footer-bio">
               Empowering ASEAN enterprise architectures with premium organizational strategy, cyber-resiliency, and high-performance digital B2B solutions.
             </p>
-            
+
             <div className="social-links">
               <a href="#" className="social-icon-btn" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '18px', height: '18px' }}>
+                <svg className="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '18px', height: '18px' }}>
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                   <rect x="2" y="9" width="4" height="12" />
                   <circle cx="4" cy="4" r="2" />
                 </svg>
               </a>
               <a href="#" className="social-icon-btn" aria-label="Twitter">
-                <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: '16px', height: '16px' }}>
+                <svg className="lucide" viewBox="0 0 24 24" fill="currentColor" style={{ width: '16px', height: '16px' }}>
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>
@@ -57,7 +57,7 @@ const Footer = () => {
           {/* Column 3: Regional Hubs */}
           <div className="footer-col office-col">
             <h4 className="footer-col-title">Regional presence</h4>
-            
+
             <div className="office-item">
               <div className="office-icon">
                 <MapPin size={16} />
@@ -67,7 +67,7 @@ const Footer = () => {
                 <p>SCBD, Tower 2, Level 45, Kebayoran Baru, Jakarta Selatan</p>
               </div>
             </div>
-            
+
             <div className="office-item">
               <div className="office-icon">
                 <MapPin size={16} />

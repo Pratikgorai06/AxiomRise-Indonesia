@@ -1,6 +1,6 @@
 import React from 'react';
 import './AboutSection.css';
-import { Globe, Users, TrendingUp, Shield } from 'lucide-react';
+import { Building2, Scale, TrendingUp, ShieldCheck } from 'lucide-react';
 import teamImg from '../assets/indonesian_b2b_team.png';
 
 const AboutSection = () => {
@@ -49,7 +49,7 @@ const AboutSection = () => {
           {/* Stat Box 1: Partners */}
           <div className="about-stat-card">
             <div className="about-stat-icon-wrapper">
-              <Globe size={22} />
+              <Building2 size={22} />
             </div>
             <div>
               <span className="about-stat-number">15+</span>
@@ -73,7 +73,7 @@ const AboutSection = () => {
           {/* Stat Box 3: Protected Transactions */}
           <div className="about-stat-card">
             <div className="about-stat-icon-wrapper">
-              <Shield size={22} />
+              <ShieldCheck size={22} />
             </div>
             <div>
               <span className="about-stat-number">250M+</span>
@@ -85,7 +85,7 @@ const AboutSection = () => {
           {/* Stat Box 4: Experts */}
           <div className="about-stat-card">
             <div className="about-stat-icon-wrapper">
-              <Users size={22} />
+              <Scale size={22} />
             </div>
             <div>
               <span className="about-stat-number">100%</span>

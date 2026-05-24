@@ -3,79 +3,42 @@ import './SecuritySection.css';
 import { 
   ShieldCheck, 
   Globe, 
-  Crosshair, 
-  FileCheck, 
-  Eye, 
-  ShieldAlert, 
-  CheckCircle2, 
-  Users2, 
-  Layers 
+  Check
 } from 'lucide-react';
 import indonesiaSecurityImg from '../assets/indonesia_security_center.png';
 import advantageImg from '../assets/global_workforce_asean.png';
+import cyberSecurityArchImg from '../assets/cybersecurity_arch.png';
+import jakartaOfficeImg from '../assets/jakarta_b2b_office.png';
 
 const SecuritySection = () => {
   const [activeTab, setActiveTab] = useState('security');
 
   const securityServices = [
-    {
-      icon: <ShieldAlert size={20} strokeWidth={1.5} />,
-      title: 'OJK & BSSN Compliance',
-      desc: 'End-to-end alignment with Indonesian financial and national cybersecurity regulatory frameworks.'
-    },
-    {
-      icon: <Eye size={20} strokeWidth={1.5} />,
-      title: 'Jakarta SOC Operations',
-      desc: '24/7 Security Operations Center monitoring with real-time threat intelligence and rapid incident response.'
-    },
-    {
-      icon: <FileCheck size={20} strokeWidth={1.5} />,
-      title: 'ISO 27001 Readiness',
-      desc: 'Structured advisory and gap analysis to achieve ISO 27001 certification across enterprise environments.'
-    },
-    {
-      icon: <Crosshair size={20} strokeWidth={1.5} />,
-      title: 'Penetration Testing',
-      desc: 'Rigorous offensive security assessments targeting Indonesia-specific infrastructure and digital assets.'
-    }
+    { title: 'OJK & BSSN Compliance', desc: 'Indonesian financial and national cybersecurity frameworks.' },
+    { title: 'Jakarta SOC Operations', desc: '24/7 Security Operations Center threat monitoring.' },
+    { title: 'ISO 27001 Readiness', desc: 'Structured gap analysis to achieve global compliance certifications.' },
+    { title: 'Penetration Testing', desc: 'Offensive security assessments targeting local digital infrastructure.' }
   ];
 
   const advantages = [
-    {
-      icon: <Globe size={20} strokeWidth={1.5} />,
-      title: 'Global-Scale Delivery',
-      desc: 'Access to a Singapore-led principal network with delivery capabilities spanning the full ASEAN corridor.'
-    },
-    {
-      icon: <Users2 size={20} strokeWidth={1.5} />,
-      title: 'Indonesia-First Execution',
-      desc: 'On-ground teams in Jakarta fluent in OJK, BSSN, and local enterprise procurement frameworks.'
-    },
-    {
-      icon: <Layers size={20} strokeWidth={1.5} />,
-      title: 'Full-Stack Integration',
-      desc: 'End-to-end capabilities from infrastructure architecture to cybersecurity and digital transformation.'
-    },
-    {
-      icon: <CheckCircle2 size={20} strokeWidth={1.5} />,
-      title: 'Compliance-First Posture',
-      desc: 'Every engagement is structured around regulatory compliance — OJK, ISO 27001, and BSSN standards.'
-    }
+    { title: 'Global-Scale Delivery', desc: 'Singapore-led principal delivery with regional scale.' },
+    { title: 'Indonesia-First Execution', desc: 'On-ground teams fluent in local procurement and frameworks.' },
+    { title: 'Full-Stack Integration', desc: 'Capabilities spanning systems design, security, and cloud.' },
+    { title: 'Compliance-First Posture', desc: 'All structures aligned with standard corporate compliance rules.' }
   ];
 
   return (
     <section className="security-section" id="security">
       <div className="blueprint-pattern-dark"></div>
+      
       <div className="container">
-        
-        {/* Header Area */}
+        {/* Section Header with Segmented Switcher */}
         <div className="security-header">
           <span className="security-kicker">Unified Security &amp; Regional Scale</span>
           <h2 className="security-header-title">
             Enterprise Trust, <span className="text-brand-gradient">Engineered for ASEAN</span>
           </h2>
-
-          {/* Interactive Modern Segmented Control Switcher */}
+          
           <div className="tab-switcher-container">
             <button 
               className={`tab-btn ${activeTab === 'security' ? 'active' : ''}`}
@@ -94,109 +57,120 @@ const SecuritySection = () => {
           </div>
         </div>
 
-        {/* Tab Contents */}
+        {/* Tab Layout System */}
         <div className="security-tab-wrapper">
           
-          {/* TAB 1: SECURITY */}
+          {/* TAB 1: CYBERSECURITY & COMPLIANCE */}
           {activeTab === 'security' && (
-            <div className="security-tab-layout active-fade-in">
-              {/* Left Column: Image Showcase */}
-              <div className="security-visual">
-                <div className="blueprint-grid-visual"></div>
-                <div className="blueprint-grid-axis axis-h"></div>
-                <div className="blueprint-grid-axis axis-v"></div>
-
-                <div className="security-showcase-frame">
-                  <img
-                    src={indonesiaSecurityImg}
-                    alt="Jakarta Cybersecurity Operations Center"
-                    className="security-showcase-img"
-                  />
-                  <div className="security-frame-overlay"></div>
-                  <div className="security-floating-indicator">
-                    <span className="indicator-dot blinking"></span>
-                    <span className="indicator-label">SOC Active — Jakarta, ID</span>
-                  </div>
-                </div>
-                <div className="security-visual-border-accent"></div>
-              </div>
-
-              {/* Right Column: Text & Service Cards */}
-              <div className="security-content">
+            <div className="security-grid-layout active-fade-in">
+              
+              {/* Left Content Column */}
+              <div className="security-content-col">
                 <span className="tab-label-kicker">Cybersecurity &amp; Compliance</span>
-                <h3 className="tab-title">
-                  Enterprise Security <span className="highlight-text">Built for Indonesia</span>
+                <h3 className="tab-title-custom">
+                  Enterprise Security <br />
+                  <span className="highlight-text">Built for Indonesian Core.</span>
                 </h3>
                 <div className="heritage-accent-bar"></div>
-                <p className="tab-desc-paragraph">
-                  From Jakarta-based SOC operations to BSSN compliance advisory — we provide 
-                  comprehensive cybersecurity architecture for high-compliance Indonesian enterprises.
+                
+                <p className="tab-desc-paragraph-custom">
+                  From Jakarta-based SOC operations to OJK and BSSN compliance advisory — we provide 
+                  comprehensive cybersecurity architecture for high-compliance enterprise operators.
                 </p>
 
-                <div className="tab-cards-grid">
+                {/* 2-Column Checkmark Grid */}
+                <div className="security-checkmark-grid">
                   {securityServices.map((service, i) => (
-                    <div className="combined-feature-card glass-panel" key={i}>
-                      <div className="combined-card-icon-box">{service.icon}</div>
-                      <div className="combined-card-info">
-                        <h4>{service.title}</h4>
-                        <p>{service.desc}</p>
+                    <div key={i} className="security-checkmark-item">
+                      <div className="security-check-icon-wrapper">
+                        <Check size={14} className="security-check-icon" />
                       </div>
+                      <span className="security-check-text">{service.title}</span>
                     </div>
                   ))}
                 </div>
               </div>
+
+              {/* Right Showcase: Single Premium Image Showcase Card */}
+              <div className="security-visual-col">
+                <div className="blueprint-grid-visual-security">
+                  <div className="blueprint-grid-axis axis-h"></div>
+                  <div className="blueprint-grid-visual-security"></div>
+                </div>
+
+                <div className="prestige-single-image-container premium-glass-card">
+                  <img 
+                    src={indonesiaSecurityImg} 
+                    alt="AxiomRise - Active Threat Hunting SOC Room" 
+                    className="single-showcase-img" 
+                  />
+                  <div className="collage-card-overlay"></div>
+                  
+                  {/* Security Badge */}
+                  <div className="prestige-card-badge">
+                    <span className="badge-pulse"></span>
+                    <span>SOC Threat Active</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
           )}
 
-          {/* TAB 2: ADVANTAGE */}
+          {/* TAB 2: THE AXIOMRISE ADVANTAGE */}
           {activeTab === 'advantage' && (
-            <div className="security-tab-layout active-fade-in">
-              {/* Left Column: Image Showcase */}
-              <div className="security-visual">
-                <div className="blueprint-grid-visual"></div>
-                <div className="blueprint-grid-axis axis-h"></div>
-                <div className="blueprint-grid-axis axis-v"></div>
-
-                <div className="security-showcase-frame">
-                  <img
-                    src={advantageImg}
-                    alt="AxiomRise – Global Workforce ASEAN"
-                    className="security-showcase-img"
-                  />
-                  <div className="security-frame-overlay"></div>
-                  <div className="security-floating-indicator indicator-gold">
-                    <span className="indicator-dot blinking-gold"></span>
-                    <span className="indicator-label gold-lbl">Regional Network Corridor</span>
-                  </div>
-                </div>
-                <div className="security-visual-border-accent border-gold"></div>
-              </div>
-
-              {/* Right Column: Text & Service Cards */}
-              <div className="security-content">
+            <div className="security-grid-layout active-fade-in">
+              
+              {/* Left Content Column */}
+              <div className="security-content-col">
                 <span className="tab-label-kicker kicker-gold">Global Workforce &amp; Local Edge</span>
-                <h3 className="tab-title">
-                  The <span className="highlight-text-gold">AxiomRise Advantage</span>
+                <h3 className="tab-title-custom">
+                  The Regional <br />
+                  <span className="highlight-text-gold">AxiomRise Advantage.</span>
                 </h3>
                 <div className="heritage-accent-bar"></div>
-                <p className="tab-desc-paragraph">
-                  We deliver the scale of a global workforce combined with deep regional knowledge 
-                  of the ASEAN market. Our positioning bridges Singapore's standards with 
-                  Indonesia's fastest growing enterprises.
+                
+                <p className="tab-desc-paragraph-custom">
+                  We deliver the scale of a global workforce combined with deep regional execution. 
+                  Our positioning bridges Singapore's standards with Indonesia's fastest growing enterprises.
                 </p>
 
-                <div className="tab-cards-grid">
+                {/* 2-Column Checkmark Grid */}
+                <div className="security-checkmark-grid">
                   {advantages.map((advantage, i) => (
-                    <div className="combined-feature-card glass-panel card-gold-hover" key={i}>
-                      <div className="combined-card-icon-box icon-gold-box">{advantage.icon}</div>
-                      <div className="combined-card-info">
-                        <h4>{advantage.title}</h4>
-                        <p>{advantage.desc}</p>
+                    <div key={i} className="security-checkmark-item">
+                      <div className="security-check-icon-wrapper wrapper-gold">
+                        <Check size={14} className="security-check-icon icon-gold" />
                       </div>
+                      <span className="security-check-text">{advantage.title}</span>
                     </div>
                   ))}
                 </div>
               </div>
+
+              {/* Right Showcase: Single Premium Image Showcase Card */}
+              <div className="security-visual-col">
+                <div className="blueprint-grid-visual-security">
+                  <div className="blueprint-grid-axis axis-h"></div>
+                  <div className="blueprint-grid-visual-security"></div>
+                </div>
+
+                <div className="prestige-single-image-container advantage-single premium-glass-card">
+                  <img 
+                    src={advantageImg} 
+                    alt="AxiomRise - Singapore-Indonesia Delivery Workforce" 
+                    className="single-showcase-img" 
+                  />
+                  <div className="collage-card-overlay"></div>
+                  
+                  {/* Capacity Badge */}
+                  <div className="prestige-card-badge badge-gold">
+                    <span className="badge-pulse pulse-gold"></span>
+                    <span>Workforce Active</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
           )}
 

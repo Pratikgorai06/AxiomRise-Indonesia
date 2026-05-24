@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import axiomriseLogo from '../assets/image.png';
 
 const Navbar = () => {
@@ -49,14 +49,13 @@ const Navbar = () => {
           <a href="#security" className="nav-link">Security</a>
           <a href="#lifecycle" className="nav-link">Lifecycle</a>
           <a href="#regional" className="nav-link">Regional</a>
-          <a href="#partners" className="nav-link">Partners</a>
         </div>
 
         {/* Action Button */}
         <div className="navbar-actions">
           <a href="#contact" className="btn btn-navbar">
             Consult Architect
-            <ArrowRight size={16} />
+            <ArrowUpRight size={16} />
           </a>
         </div>
 
@@ -75,7 +74,6 @@ const Navbar = () => {
           <a href="#security" className="mobile-nav-link" onClick={handleLinkClick}>Security</a>
           <a href="#lifecycle" className="mobile-nav-link" onClick={handleLinkClick}>Lifecycle</a>
           <a href="#regional" className="mobile-nav-link" onClick={handleLinkClick}>Regional</a>
-          <a href="#partners" className="mobile-nav-link" onClick={handleLinkClick}>Partners</a>
           <a href="#contact" className="mobile-nav-link btn-mobile-cta" onClick={handleLinkClick}>
             Consult Architect
           </a>

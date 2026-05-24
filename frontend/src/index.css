@@ -2,36 +2,36 @@
 
 :root {
   /* Unified Corporate B2B Dark Theme Variables */
-  --bg-dark-base: #070b16;
+  --bg-dark-base: #0A1128;
   /* Deep Midnight Slate */
-  --bg-dark-surface: #0d1326;
+  --bg-dark-surface: #111E38;
   /* Premium Card Surface */
-  --bg-dark-surface-hover: #121a32;
+  --bg-dark-surface-hover: #162647;
 
-  --color-text-main: #f8fafc;
-  /* Crisp White Display Headings */
+  --color-text-main: #F4F6F9;
+  /* Crisp Off-White Display Headings */
   --color-text-body: #e2e8f0;
   /* Silver Slate Gray copy for ultimate readability */
   --color-text-muted: #94a3b8;
   /* Muted Slate Description */
 
-  --color-primary: #3b82f6;
+  --color-primary: #0056A3;
   /* B2B Royal Blue Trust Anchor */
-  --color-primary-hover: #2563eb;
+  --color-primary-hover: #0066c2;
 
-  --border-corporate: rgba(255, 255, 255, 0.06);
-  /* Clean corporate line borders */
-  --border-corporate-hover: rgba(59, 130, 246, 0.25);
+  --border-corporate: rgba(0, 86, 163, 0.35);
+  /* Faint #0056A3 border */
+  --border-corporate-hover: rgba(0, 86, 163, 0.6);
 
   /* Indonesian Heritage Accents */
-  --heritage-gold: #c5a880;
-  --heritage-gold-glow: rgba(197, 168, 128, 0.15);
+  --heritage-gold: #C5A059;
+  --heritage-gold-glow: rgba(197, 160, 89, 0.15);
   --heritage-terracotta: #c85c42;
   --heritage-terracotta-glow: rgba(200, 92, 66, 0.2);
 
   /* Typography Stack */
-  --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
 }
 
 * {
@@ -106,6 +106,7 @@ body {
 }
 
 @media (max-width: 900px) {
+
   .section,
   .hero-section,
   .about-section,
@@ -222,17 +223,18 @@ h4 {
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
-  color: #ffffff;
-  border: 1px solid var(--color-primary);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+  background-color: var(--heritage-gold);
+  color: var(--bg-dark-base);
+  border: 1px solid var(--heritage-gold);
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.15);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-hover);
-  border-color: var(--color-primary-hover);
+  background-color: #dcb36c;
+  border-color: #dcb36c;
+  color: #03050a;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 24px rgba(197, 160, 89, 0.3);
 }
 
 .btn-secondary-heritage {
@@ -259,4 +261,17 @@ h4 {
   border-color: var(--color-primary);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+}
+
+/* Responsive Utilities */
+@media (min-width: 901px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .desktop-only {
+    display: none !important;
+  }
 }

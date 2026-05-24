@@ -1,6 +1,6 @@
 import React from 'react';
 import './TransformationLifecycle.css';
-import { MessageSquare, Search, Rocket, Eye } from 'lucide-react';
+import { Search, BarChart2, Layers, ShieldCheck } from 'lucide-react';
 
 const TransformationLifecycle = () => {
   const steps = [
@@ -8,25 +8,25 @@ const TransformationLifecycle = () => {
       num: "01",
       title: "Initial Consultation",
       desc: "Deep-listening assessments to map out strategic business goals and technical roadblocks in depth.",
-      icon: <MessageSquare size={20} />
+      icon: <Search size={20} />
     },
     {
       num: "02",
       title: "Analysis & Strategy",
       desc: "Bespoke design specifications establishing robust cybersecurity, databases, and network architectures.",
-      icon: <Search size={20} />
+      icon: <BarChart2 size={20} />
     },
     {
       num: "03",
       title: "Integration & Deployment",
       desc: "High-grade technical implementation led by principal engineers—delivered on time under rigorous SLA baselines.",
-      icon: <Rocket size={20} />
+      icon: <Layers size={20} />
     },
     {
       num: "04",
       title: "Relentless Overwatch",
       desc: "Continuous active system audits, real-time threat-hunting models, and support for regional enterprise scale.",
-      icon: <Eye size={20} />
+      icon: <ShieldCheck size={20} />
     }
   ];
 

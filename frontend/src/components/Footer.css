@@ -1,10 +1,9 @@
 .footer-section {
-  background-color: #050811;
-  /* Clean flat dark slate anchor */
+  background: linear-gradient(180deg, var(--bg-dark-base) 0%, #050811 100%);
   position: relative;
   overflow: hidden;
-  padding: 100px 0 50px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 75px 0 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .footer-container {
