@@ -1,155 +1,238 @@
 .regional-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  background-color: var(--bg-dark-base);
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .regional-header {
-  margin-bottom: 50px;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.regional-header h2 {
-  font-size: 3rem;
+.regional-kicker {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--heritage-gold);
+  margin-bottom: 12px;
+}
+
+.regional-header-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.regional-header-title span.text-primary-solid {
+  color: var(--color-primary);
+}
+
+.regional-subtitle {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted);
 }
 
 .regional-layout {
-  display: flex;
-  align-items: stretch;
-  gap: 50px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr; /* 2-column layout */
+  align-items: center;
+  gap: 60px;
 }
 
-/* Map area */
-.regional-map-container {
-  flex: 1;
+/* Widescreen Industrial Corridor Image Showcase */
+.regional-visual {
   position: relative;
-  min-height: 450px;
-  background: radial-gradient(circle at center, rgba(31, 142, 255, 0.05), transparent 70%);
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.dot-map {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
-  background-size: 15px 15px;
-  mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);
-}
-
-.location-pin {
-  position: absolute;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.blueprint-grid-visual {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  border: 1px dashed rgba(59, 130, 246, 0.08);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  animation: rotateGrid 50s linear infinite;
+}
+
+.blueprint-grid-axis {
+  position: absolute;
+  background-color: rgba(59, 130, 246, 0.04);
+}
+
+.axis-h {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+  left: 0;
+}
+
+.axis-v {
+  height: 100%;
+  width: 1px;
+  left: 50%;
+  top: 0;
+}
+
+@keyframes rotateGrid {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.regional-showcase-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.2;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  box-shadow: 
+    0 24px 48px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(59, 130, 246, 0.1);
   z-index: 2;
 }
 
-.sg { top: 60%; left: 20%; }
-.apac { top: 40%; left: 60%; }
-.global { top: 70%; left: 50%; }
-
-.ping-ring {
-  width: 20px;
-  height: 20px;
-  background: rgba(0, 229, 255, 1);
-  border-radius: 50%;
-  position: relative;
-  box-shadow: 0 0 15px rgba(0, 229, 255, 0.8);
+.regional-showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ping-ring::after {
-  content: '';
+.regional-visual:hover .regional-showcase-img {
+  transform: scale(1.03);
+}
+
+.regional-frame-overlay {
   position: absolute;
-  top: -10px; left: -10px; right: -10px; bottom: -10px;
-  border-radius: 50%;
-  border: 2px solid rgba(0, 229, 255, 0.5);
-  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(9, 14, 26, 0.8) 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
-@keyframes ping {
-  75%, 100% {
-    transform: scale(2.5);
-    opacity: 0;
-  }
+.regional-visual-border-accent {
+  position: absolute;
+  top: 15px; left: 15px; right: 15px; bottom: 15px;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 2;
 }
 
-.pin-card {
-  padding: 10px 15px;
-  background: rgba(10, 15, 25, 0.9);
-  min-width: 150px;
+/* Minimalist Floating Badge */
+.regional-floating-badge {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  z-index: 10;
+  background: rgba(9, 14, 26, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-corporate);
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-.pin-card h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-}
-
-.pin-card p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+.regional-badge-val {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
 }
 
 /* Sectors Grid */
 .sectors-grid {
-  flex: 1.2;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 24px;
+  z-index: 2;
+  position: relative;
 }
 
 .sector-card {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 25px;
-  background: linear-gradient(135deg, rgba(20, 30, 50, 0.4), rgba(4, 8, 16, 0.6));
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  gap: 20px;
+  padding: 28px;
+  background-color: var(--bg-dark-surface);
+  border: 1px solid var(--border-corporate);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
   cursor: pointer;
 }
 
 .sector-card:hover {
-  transform: translateX(5px);
-  border-color: var(--primary-glow);
+  transform: translateX(6px);
+  border-color: var(--border-corporate-hover);
+  background-color: var(--bg-dark-surface-hover);
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.4),
+    0 0 12px rgba(59, 130, 246, 0.05);
 }
 
 .sector-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--glass-border);
-  color: var(--text-muted);
-  transition: color 0.3s ease, box-shadow 0.3s ease;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-corporate);
+  color: var(--color-text-muted);
+  transition: all 0.3s ease;
   flex-shrink: 0;
 }
 
 .sector-card:hover .sector-icon {
-  color: var(--primary-glow);
-  box-shadow: 0 0 15px rgba(31, 142, 255, 0.3);
+  color: #ffffff;
+  border-color: rgba(59, 130, 246, 0.3);
+  background-color: rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
 }
 
 .sector-title {
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #ffffff;
   line-height: 1.4;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .regional-layout {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
   .sectors-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
-  .regional-map-container {
-    height: 350px;
-    min-height: auto;
+  .regional-visual {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .sectors-grid {
+    grid-template-columns: 1fr;
   }
 }

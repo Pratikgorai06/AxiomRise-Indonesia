@@ -1,67 +1,69 @@
 import React from 'react';
 import './RegionalImpactSection.css';
 import { Landmark, Building2, Shield, Wallet, Stethoscope, Factory } from 'lucide-react';
+import aseanCorridorImg from '../assets/asean_enterprise_corridor.png';
 
 const RegionalImpactSection = () => {
   const sectors = [
-    { title: "Government & Public Sector", icon: <Landmark size={24} /> },
-    { title: "Banking & Financial Services", icon: <Building2 size={24} /> },
-    { title: "Insurance & Capital Markets", icon: <Shield size={24} /> },
-    { title: "Fintech & Digital Payments", icon: <Wallet size={24} /> },
-    { title: "Healthcare & Life Sciences", icon: <Stethoscope size={24} /> },
-    { title: "Manufacturing & Technology", icon: <Factory size={24} /> }
+    { title: "Government & Public Sector", icon: <Landmark size={22} /> },
+    { title: "Banking & Financial Services", icon: <Building2 size={22} /> },
+    { title: "Insurance & Capital Markets", icon: <Shield size={22} /> },
+    { title: "Fintech & Digital Payments", icon: <Wallet size={22} /> },
+    { title: "Healthcare & Life Sciences", icon: <Stethoscope size={22} /> },
+    { title: "Manufacturing & Technology", icon: <Factory size={22} /> }
   ];
 
   return (
-    <section className="section regional-section container">
-      <div className="regional-header">
-        <h2 className="glow-text">Regional Scale & Sector Impact</h2>
-      </div>
-
-      <div className="regional-layout">
-        
-        {/* Abstract Dot Map with Pings */}
-        <div className="regional-map-container">
-          <div className="dot-map"></div>
-          
-          <div className="location-pin sg">
-            <div className="ping-ring"></div>
-            <div className="pin-card glass-panel">
-              <h4>Singapore</h4>
-              <p>HQ & Centre of Excellence</p>
-            </div>
-          </div>
-
-          <div className="location-pin apac">
-            <div className="ping-ring"></div>
-            <div className="pin-card glass-panel">
-              <h4>APAC</h4>
-              <p>Regional Client Programs</p>
-            </div>
-          </div>
-
-          <div className="location-pin global">
-            <div className="ping-ring"></div>
-            <div className="pin-card glass-panel">
-              <h4>Global</h4>
-              <p>Remote Engagements</p>
-            </div>
-          </div>
-          
+    <section className="regional-section" id="regional">
+      <div className="blueprint-pattern"></div>
+      
+      <div className="container">
+        <div className="regional-header">
+          <span className="regional-kicker">Regional Scale & Sector Impact</span>
+          <h2 className="regional-header-title">
+            Empowering ASEAN <span className="text-primary-solid">Enterprise</span>
+          </h2>
+          <p className="regional-subtitle">
+            Strategic technology advisory and deployment across high-compliance industrial corridors.
+          </p>
         </div>
 
-        {/* Sectors Grid */}
-        <div className="sectors-grid">
-          {sectors.map((sector, idx) => (
-            <div key={idx} className="sector-card glass-panel">
-              <div className="sector-icon">
-                {sector.icon}
+        <div className="regional-layout">
+          {/* Left Column: Premium ASEAN Industrial Tech Corridor Showcase */}
+          <div className="regional-visual">
+            <div className="blueprint-grid-visual">
+              <div className="blueprint-grid-axis axis-h"></div>
+              <div className="blueprint-grid-axis axis-v"></div>
+            </div>
+            
+            <div className="regional-showcase-frame">
+              <img 
+                src={aseanCorridorImg} 
+                alt="AxiomRise - ASEAN Enterprise Industrial Corridor" 
+                className="regional-showcase-img"
+              />
+              <div className="regional-frame-overlay"></div>
+              <div className="regional-visual-border-accent"></div>
+            </div>
+            
+            {/* Minimalist floating stats card */}
+            <div className="regional-floating-badge">
+              <span className="regional-badge-val">High-Compliance Logistics & Operations</span>
+            </div>
+          </div>
+
+          {/* Right Column: Sectors Grid */}
+          <div className="sectors-grid">
+            {sectors.map((sector, idx) => (
+              <div key={idx} className="sector-card">
+                <div className="sector-icon">
+                  {sector.icon}
+                </div>
+                <h3 className="sector-title">{sector.title}</h3>
               </div>
-              <h3 className="sector-title">{sector.title}</h3>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-
       </div>
     </section>
   );

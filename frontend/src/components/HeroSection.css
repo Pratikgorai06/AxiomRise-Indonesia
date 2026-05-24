@@ -1,144 +1,394 @@
 .hero-section {
+  position: relative;
+  background-color: var(--bg-dark-base);
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 80px 24px 40px;
-  position: relative;
+  padding: 140px 0 100px 0;
   overflow: hidden;
+  z-index: 1;
 }
 
 .hero-section::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') center/cover;
-  opacity: 0.15;
-  z-index: -2;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(197, 168, 128, 0.08) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
 }
 
-.hero-section::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to bottom, rgba(4, 8, 16, 0.2), var(--bg-darker));
-  z-index: -1;
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  align-items: center;
+  gap: 80px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero-kicker-badge {
+  display: inline-flex;
   align-items: center;
-  margin-top: 10vh;
-  text-align: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-corporate);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--heritage-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
 }
 
-.hero-logo-container {
-  padding: 30px 60px;
-  border-radius: 20px;
-  margin-bottom: 40px;
-  animation: float 6s ease-in-out infinite;
-}
-
-.hero-logo-img {
-  max-width: 220px;
-  height: auto;
-  filter: drop-shadow(0 0 20px rgba(31, 142, 255, 0.3));
+.hero-kicker-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--color-primary);
 }
 
 .hero-title {
-  font-size: 4rem;
-  font-weight: 700;
-  letter-spacing: -1px;
-  margin: 0;
+  font-size: 3.75rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
 }
 
-.accent-blue {
-  color: #1f8eff;
-  text-shadow: 0 0 15px rgba(31, 142, 255, 0.6);
+.hero-title span.text-brand {
+  background: linear-gradient(135deg, #ffffff 30%, var(--color-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.accent-text {
-  color: #f0f4f8;
+.hero-description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: 40px;
+  max-width: 640px;
 }
 
-.hero-subtitle {
-  font-size: 0.9rem;
-  letter-spacing: 4px;
-  color: var(--text-muted);
-  margin-top: 5px;
-}
-
-.hero-main-text {
-  margin-top: 20px;
-}
-
-.main-heading {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.sub-heading {
-  font-size: 1.5rem;
-  color: var(--text-muted);
-  font-weight: 300;
-}
-
-.hero-traits {
+.hero-cta-group {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px 40px;
-  border-radius: 50px;
+  gap: 16px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.hero-trust-indicators {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  border-top: 1px solid var(--border-corporate);
+  padding-top: 32px;
   width: 100%;
-  max-width: 900px;
-  margin-top: auto;
 }
 
-.trait {
+.trust-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-item-val {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.trust-item-label {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Floating Trust Sphere Visual (Right Column) */
+.hero-visual {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  transition: color 0.3s ease;
+  justify-content: center;
+  width: 100%;
+  height: 480px;
 }
 
-.trait:hover {
-  color: #fff;
+/* Overlapping Corporate Boardroom Showcase Frame */
+.hero-showcase-frame {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  box-shadow: 
+    0 24px 64px rgba(0, 0, 0, 0.65),
+    0 0 40px rgba(59, 130, 246, 0.08);
+  z-index: 1;
+  animation: pulseSphere 10s ease-in-out infinite;
 }
 
-.trait-icon {
-  color: var(--primary-glow);
+.hero-showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-.trait-divider {
+.hero-showcase-frame:hover .hero-showcase-img {
+  transform: scale(1.03);
+}
+
+.hero-frame-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(9, 14, 26, 0.6) 100%);
+  pointer-events: none;
+}
+
+.blueprint-grid-visual {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border: 1px dashed rgba(59, 130, 246, 0.12);
+  border-radius: 50%;
+  z-index: 0;
+  animation: rotateGrid 35s linear infinite;
+}
+
+.blueprint-grid-axis {
+  position: absolute;
+  background-color: rgba(59, 130, 246, 0.08);
+}
+
+.axis-h {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+  left: 0;
+}
+
+.axis-v {
+  height: 100%;
   width: 1px;
-  height: 24px;
-  background: var(--glass-border);
+  left: 50%;
+  top: 0;
 }
 
-@keyframes float {
+/* Overlapping Frosted Dark Glass Cards */
+.hero-floating-card {
+  position: absolute;
+  padding: 18px 22px;
+  border-radius: 14px;
+  background: rgba(14, 22, 38, 0.8);
+  border: 1px solid var(--border-corporate);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 3;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-floating-card:hover {
+  background: rgba(19, 28, 48, 0.95);
+  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 
+    0 24px 48px rgba(0, 0, 0, 0.8),
+    0 0 16px rgba(59, 130, 246, 0.1);
+}
+
+.card-1 {
+  top: 15%;
+  left: -5%;
+  animation: floatCardY 7s ease-in-out infinite;
+}
+
+.card-2 {
+  bottom: 25%;
+  right: -5%;
+  animation: floatCardY 7s ease-in-out infinite 2.5s;
+}
+
+.card-3 {
+  bottom: 10%;
+  left: 5%;
+  animation: floatCardX 8s ease-in-out infinite 1.2s;
+}
+
+.float-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-blue {
+  background-color: rgba(59, 130, 246, 0.08);
+  color: var(--color-primary);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+.icon-gold {
+  background-color: rgba(197, 168, 128, 0.08);
+  color: var(--heritage-gold);
+  border: 1px solid rgba(197, 168, 128, 0.15);
+}
+
+.icon-terracotta {
+  background-color: rgba(200, 92, 66, 0.08);
+  color: var(--heritage-terracotta);
+  border: 1px solid rgba(200, 92, 66, 0.15);
+}
+
+.float-card-title {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.float-card-sub {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* Keyframes */
+@keyframes pulseSphere {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.03); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
+@keyframes rotateGrid {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes floatCardY {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-12px); }
   100% { transform: translateY(0px); }
 }
 
-@media (max-width: 768px) {
-  .hero-title { font-size: 3rem; }
-  .main-heading { font-size: 2.2rem; }
-  .sub-heading { font-size: 1.1rem; }
-  .hero-traits {
-    flex-direction: column;
-    gap: 15px;
-    border-radius: 20px;
-    padding: 30px;
+@keyframes floatCardX {
+  0% { transform: translateX(0px) translateY(0px); }
+  50% { transform: translateX(6px) translateY(-8px); }
+  100% { transform: translateX(0px) translateY(0px); }
+}
+
+/* Responsive Parameters */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 3rem;
   }
-  .trait-divider {
+  .hero-container {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    padding: 120px 0 80px 0;
+  }
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-cta-group {
+    justify-content: center;
+  }
+  .hero-trust-indicators {
+    justify-content: center;
     width: 100%;
-    height: 1px;
+  }
+  .hero-visual {
+    height: auto;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .hero-showcase-frame {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    aspect-ratio: 1;
+    margin-bottom: 24px;
+    animation: none;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+  }
+  .blueprint-grid-visual {
+    display: none;
+  }
+  .hero-floating-card {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100%;
+    max-width: 380px;
+    margin: 10px auto !important;
+    animation: none !important;
+    transform: none !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.25rem;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+  .hero-trust-indicators {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
   }
 }

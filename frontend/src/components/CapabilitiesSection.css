@@ -1,89 +1,165 @@
+.capabilities-section-wrapper {
+  background-color: var(--bg-dark-base);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
 .capabilities-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding: 20px 0 72px 0;
 }
 
 .capabilities-header {
   text-align: center;
-  margin-bottom: 60px;
+  max-width: 640px;
+  margin: 0 auto 44px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.capabilities-header h2 {
-  font-size: 3rem;
+.capabilities-kicker {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--heritage-gold);
+  margin-bottom: 12px;
 }
 
-.text-muted {
-  color: var(--text-muted);
-  font-weight: 300;
+.capabilities-header-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
 }
 
+.capabilities-header-title span.text-glow {
+  background: linear-gradient(135deg, #ffffff 40%, var(--color-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.capabilities-subtitle {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  margin-top: 10px;
+}
+
+/* 3-Column matrix grid */
 .matrix-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  position: relative;
+  gap: 20px;
 }
 
-/* Background Grid Lines */
-.matrix-grid::before {
+.matrix-card.glass-panel {
+  position: relative;
+  background: var(--bg-dark-surface);
+  border: 1px solid var(--border-corporate);
+  border-radius: 12px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 28px -8px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+/* Glowing pointer spot overlay */
+.matrix-card.glass-panel::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: 
-    linear-gradient(rgba(31, 142, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(31, 142, 255, 0.1) 1px, transparent 1px);
-  background-size: calc(100% / 3) calc(100% / 3);
-  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.06) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
   pointer-events: none;
 }
 
-.matrix-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 30px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  cursor: pointer;
+.matrix-card.glass-panel:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: var(--border-corporate-hover);
+  box-shadow:
+    0 20px 48px -12px rgba(0, 0, 0, 0.7),
+    0 0 24px -4px rgba(59, 130, 246, 0.12);
 }
 
-.matrix-card:hover {
-  background: rgba(31, 142, 255, 0.05);
+.matrix-card.glass-panel:hover::before {
+  opacity: 1;
 }
 
+/* Dynamic Badge Pedestals */
 .matrix-icon {
-  color: var(--text-muted);
-  transition: color 0.3s ease;
+  width: 44px;
+  height: 44px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  transition: all 0.38s ease;
+  margin-bottom: 20px;
 }
 
-.matrix-card:hover .matrix-icon {
-  color: var(--primary-glow);
+.matrix-card.glass-panel:hover .matrix-icon {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+  transform: rotate(6deg) scale(1.05);
 }
 
-.matrix-content h3 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-  font-weight: 600;
+/* Card typography layout */
+.matrix-card-title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
 }
 
-.matrix-content p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.5;
+.matrix-card-desc {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+  flex-grow: 1;
 }
 
-@media (max-width: 992px) {
+
+/* Responsive breakdowns */
+@media (max-width: 1024px) {
   .matrix-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .capabilities-header-title {
+    font-size: 2.25rem;
   }
 }
 
 @media (max-width: 768px) {
   .matrix-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
-  .capabilities-header h2 {
-    font-size: 2rem;
+
+  .capabilities-section {
+    padding: 80px 0;
   }
 }

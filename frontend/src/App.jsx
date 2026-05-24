@@ -1,30 +1,30 @@
 import React from 'react';
+import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
-import VisionMissionSection from './components/VisionMissionSection';
 import CapabilitiesSection from './components/CapabilitiesSection';
 import ITArchitectureSection from './components/ITArchitectureSection';
 import SecuritySection from './components/SecuritySection';
-import AdvantageSection from './components/AdvantageSection';
 import TransformationLifecycle from './components/TransformationLifecycle';
 import RegionalImpactSection from './components/RegionalImpactSection';
 import PartnersSection from './components/PartnersSection';
 import ContactSection from './components/ContactSection';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="app">
+      <Navbar />
       <HeroSection />
       <AboutSection />
-      <VisionMissionSection />
       <CapabilitiesSection />
       <ITArchitectureSection />
       <SecuritySection />
-      <AdvantageSection />
       <TransformationLifecycle />
       <RegionalImpactSection />
       <PartnersSection />
       <ContactSection />
+      <Footer />
     </div>
   );
 }

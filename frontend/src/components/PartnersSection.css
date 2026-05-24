@@ -1,103 +1,140 @@
+.partners-section-wrapper {
+  background-color: var(--bg-dark-base);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+  overflow: hidden;
+  padding: 50px 0 40px 0;
+}
+
 .partners-section {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
 .partners-header {
   text-align: center;
-  margin-bottom: 70px;
-}
-
-.partners-header h2 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.partners-subtitle {
-  font-size: 1.5rem;
-  color: var(--text-muted);
-  font-weight: 300;
-}
-
-.partners-grid {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  width: 100%;
-}
-
-.partner-pedestal {
+  max-width: 700px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1;
-  max-width: 350px;
 }
 
-.pedestal-top {
-  width: 100%;
-  height: 10px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  margin-bottom: 5px;
+.partners-kicker {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--heritage-gold);
+  margin-bottom: 12px;
 }
 
-.partner-logo-container {
+.partners-header-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.partners-header-title span.text-primary-solid {
+  color: var(--color-primary);
+}
+
+.partners-subtitle {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted);
+}
+
+/* Premium Moving Logo Marquee - Seamless Infinite Scrolling */
+.partners-marquee-container {
+  overflow: hidden;
   width: 100%;
-  height: 250px;
+  position: relative;
+  background-color: var(--bg-dark-base);
+  padding: 30px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+}
+
+/* Subtle masking gradients on sides for high-end B2B glass effect */
+.partners-marquee-container::before,
+.partners-marquee-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.partners-marquee-container::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg-dark-base) 10%, transparent 100%);
+}
+
+.partners-marquee-container::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg-dark-base) 10%, transparent 100%);
+}
+
+.partners-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 30px;
+  animation: scrollMarquee 25s linear infinite;
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 15px)); /* Scrolls exactly half the track width seamlessly */
+  }
+}
+
+.partner-logo-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(20,30,50,0.4) 100%);
-  border-top: 1px solid rgba(255,255,255,0.2);
-  border-bottom: 2px solid var(--accent-blue);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 229, 255, 0.1) inset;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.partner-logo-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 229, 255, 0.3) inset;
-}
-
-.pedestal-bottom {
-  width: 100%;
-  height: 15px;
-  background: linear-gradient(90deg, #111, #333, #111);
-  margin-top: 5px;
-  border-radius: 2px;
+  height: 80px;
+  width: 220px;
+  background-color: var(--bg-dark-surface);
+  border: 1px solid var(--border-corporate);
+  border-radius: 8px;
+  padding: 18px 28px;
+  flex-shrink: 0;
 }
 
 .partner-logo-img {
-  max-width: 80%;
-  max-height: 160px;
+  max-width: 100%;
+  max-height: 40px;
   object-fit: contain;
-  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
-  transition: filter 0.3s ease, transform 0.3s ease;
+  filter: grayscale(0) opacity(1); /* Constant crisp colored branding */
+  transition: opacity 0.3s ease;
 }
 
-.partner-logo-container:hover .partner-logo-img {
-  filter: drop-shadow(0 0 25px rgba(0, 229, 255, 0.4));
-  transform: scale(1.05);
-}
-
-/* Star Shield and inCall have light backgrounds, so they look fine as-is */
-.starshield-img {
-  max-height: 120px;
-}
-
-.incall-img {
-  max-height: 120px;
-}
-
-@media (max-width: 992px) {
-  .partners-grid {
-    flex-direction: column;
-    align-items: center;
+/* Breakpoints */
+@media (max-width: 768px) {
+  .partners-marquee-container {
+    padding: 20px 0;
   }
-  .partner-pedestal {
-    width: 100%;
+  
+  .partner-logo-wrapper {
+    height: 70px;
+    width: 180px;
+    padding: 12px 20px;
+  }
+  
+  .partner-logo-img {
+    max-height: 32px;
   }
 }
