@@ -8,7 +8,7 @@
 .lifecycle-section {
   position: relative;
   z-index: 2;
-  padding: 72px 0;
+  padding: 55px 0;
 }
 
 .lifecycle-header {
@@ -22,33 +22,36 @@
 
 .lifecycle-kicker {
   font-family: var(--font-display);
-  font-size: 0.875rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   color: var(--heritage-gold);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .lifecycle-header-title {
-  font-size: 2.1rem;
+  font-size: 2.25rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #F8FAFC;
   line-height: 1.2;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
 }
 
 .lifecycle-header-title span.text-glow {
-  background: linear-gradient(135deg, #ffffff 40%, var(--color-primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--heritage-gold);
+  background: none;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
 }
 
 .lifecycle-subtitle {
+  font-family: var(--font-body);
   font-size: 0.9375rem;
-  color: var(--color-text-muted);
-  margin-top: 10px;
+  color: #94A3B8;
+  font-weight: 400;
+  margin-top: 12px;
+  line-height: 1.65;
 }
 
 /* Timeline Track */
@@ -158,10 +161,10 @@
 
 .step-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(59, 130, 246, 0.3);
+  border-color: rgba(197, 160, 89, 0.3);
   box-shadow:
     0 20px 48px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(59, 130, 246, 0.1);
+    0 0 20px rgba(197, 160, 89, 0.08);
 }
 
 .step-card-header {
@@ -182,7 +185,7 @@
 }
 
 .lifecycle-step:hover .step-number {
-  color: var(--heritage-gold-glow);
+  color: rgba(197, 160, 89, 0.18);
 }
 
 .step-icon {
@@ -194,15 +197,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-muted);
+  color: #94A3B8;
   transition: all 0.4s ease;
 }
 
 .lifecycle-step:hover .step-icon {
-  background: rgba(59, 130, 246, 0.08);
-  border-color: rgba(59, 130, 246, 0.3);
-  color: #ffffff;
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
+  background: rgba(197, 160, 89, 0.08);
+  border-color: rgba(197, 160, 89, 0.3);
+  color: var(--heritage-gold);
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.15);
   transform: scale(1.05);
 }
 
@@ -210,15 +213,16 @@
   font-family: var(--font-display);
   font-size: 1.0625rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #F8FAFC;
   margin-bottom: 8px;
   letter-spacing: -0.01em;
 }
 
 .step-card p {
+  font-family: var(--font-body);
   font-size: 0.8125rem;
-  color: var(--color-text-muted);
-  line-height: 1.5;
+  color: #94A3B8;
+  line-height: 1.6;
 }
 
 /* Collapsing Vertical Timeline for Small Screens */
@@ -236,7 +240,7 @@
   .lifecycle-steps {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding-left: 40px;
+    padding: 0 20px 0 40px;
   }
 
   .timeline-line {
@@ -268,11 +272,23 @@
 
 @media (max-width: 480px) {
   .lifecycle-header-title {
-    font-size: 2rem;
+    font-size: 1.65rem;
+  }
+
+  .lifecycle-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .step-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .step-card p {
+    font-size: 0.75rem;
   }
 
   .lifecycle-steps {
-    padding-left: 20px;
+    padding: 0 16px 0 20px;
   }
 
   .timeline-line {
