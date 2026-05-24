@@ -121,7 +121,7 @@ body {
   }
 }
 
-/* Blueprint dot matrix overlay pattern */
+/* Blueprint Premium Square Grid Matrix Overlay with fading central radial mask */
 .blueprint-pattern,
 .blueprint-pattern-dark {
   position: absolute;
@@ -129,8 +129,12 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px; /* elegant B2B large squares */
+  mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
   pointer-events: none;
   z-index: 0;
 }
@@ -274,4 +278,476 @@ h4 {
   .desktop-only {
     display: none !important;
   }
+}
+
+/* ==========================================
+   B2B PREMIUM LIGHT THEME OVERRIDES
+   ========================================== */
+.light-theme {
+  --bg-dark-base: #F8FAFC; /* Off-White Pearl */
+  --bg-dark-surface: #FFFFFF; /* Pure White */
+  --bg-dark-surface-hover: #F1F5F9; /* Slate 100 */
+
+  --color-text-main: #0F172A; /* Deep Navy-Charcoal */
+  --color-text-body: #475569; /* Soft Slate */
+  --color-text-muted: #64748B; /* Slate Gray */
+
+  --heritage-gold: #B38F44; /* Rich Antique Gold */
+  --heritage-gold-glow: rgba(179, 143, 68, 0.08);
+  --heritage-terracotta-glow: rgba(200, 92, 66, 0.08);
+
+  --border-corporate: #E2E8F0; /* Razor-thin, crisp border */
+  --border-corporate-hover: #CBD5E1;
+}
+
+/* Base Light Theme Adjustments */
+.light-theme h1,
+.light-theme h2,
+.light-theme h3,
+.light-theme h4 {
+  color: #0F172A !important;
+}
+
+.light-theme .navbar-logo-img,
+.light-theme .footer-logo-img {
+  background-color: #F8FAFC;
+}
+
+.light-theme .navbar-logo .logo-main,
+.light-theme .footer-logo .logo-main {
+  color: #0F172A;
+}
+
+.light-theme .blueprint-pattern,
+.light-theme .blueprint-pattern-dark {
+  background-image: 
+    linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+}
+
+/* Timeline Connected Nodes */
+.light-theme .timeline-node {
+  background: #F8FAFC;
+}
+
+/* Bento Grid & Metric Cards Styling */
+.light-theme .premium-glass-card,
+.light-theme .matrix-scroll-card,
+.light-theme .step-card,
+.light-theme .about-stat-card,
+.light-theme .hero-feature-card,
+.light-theme .it-column-header,
+.light-theme .it-column-body,
+.light-theme .prestige-single-image-container {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+}
+
+.light-theme .premium-glass-card:hover,
+.light-theme .matrix-scroll-card:hover,
+.light-theme .step-card:hover,
+.light-theme .about-stat-card:hover,
+.light-theme .hero-feature-card:hover,
+.light-theme .prestige-single-image-container:hover {
+  border-color: #B38F44 !important;
+  box-shadow: 
+    0 10px 20px -5px rgba(0, 0, 0, 0.08),
+    0 0 16px rgba(179, 143, 68, 0.06) !important;
+}
+
+/* Transformation Lifecycle timeline watermark numbers */
+.light-theme .step-number {
+  color: #E2E8F0 !important;
+}
+
+.light-theme .lifecycle-step:hover .step-number {
+  color: rgba(179, 143, 68, 0.18) !important;
+}
+
+.light-theme .step-icon {
+  background: rgba(15, 23, 42, 0.03) !important;
+  border-color: rgba(15, 23, 42, 0.06) !important;
+  color: #475569 !important;
+}
+
+.light-theme .lifecycle-step:hover .step-icon {
+  background: rgba(179, 143, 68, 0.06) !important;
+  border-color: rgba(179, 143, 68, 0.2) !important;
+  color: var(--heritage-gold) !important;
+}
+
+/* IT Architecture Columns */
+.light-theme .it-column-header {
+  border-bottom: none !important;
+}
+
+.light-theme .it-column-body {
+  border-top: none !important;
+}
+
+.light-theme .it-column:hover .it-column-body {
+  border-color: #B38F44 !important;
+}
+
+.light-theme .about-stat-number,
+.light-theme .about-stat-title {
+  color: #0F172A;
+}
+
+/* Interactive Elements, Tab Switchers & Forms */
+.light-theme .tab-switcher-container {
+  background: #F1F5F9 !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+.light-theme .tab-btn {
+  color: #64748B !important;
+}
+
+.light-theme .tab-btn:hover:not(.active) {
+  color: #0F172A !important;
+}
+
+.light-theme .tab-btn.active {
+  background: #0056A3 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(0, 86, 163, 0.25) !important;
+}
+
+.light-theme .tab-btn.active:nth-child(2) {
+  background: #B38F44 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(179, 143, 68, 0.25) !important;
+}
+
+/* Contact pathway card styling */
+.light-theme .contact-pathway-card {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+.light-theme .contact-pathway-card:hover {
+  background-color: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+}
+
+.light-theme .contact-pathway-card.active {
+  background-color: #F1F5F9 !important;
+  border-color: #B38F44 !important;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.04),
+    inset 4px 0 0 #B38F44 !important;
+}
+
+/* Contact Form container styling */
+.light-theme .contact-form-portal {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Input elements styling */
+.light-theme .form-input {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+.light-theme .form-input::placeholder {
+  color: #94A3B8 !important;
+}
+
+.light-theme .form-input:focus {
+  background-color: #FFFFFF !important;
+  border-color: #B38F44 !important;
+  box-shadow: 0 0 10px rgba(179, 143, 68, 0.15) !important;
+}
+
+.light-theme select.form-input option {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+
+/* Submit and Action Buttons overrides */
+.light-theme .btn-submit,
+.light-theme .btn-primary {
+  background-color: #B38F44 !important;
+  border-color: #B38F44 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(179, 143, 68, 0.18) !important;
+}
+
+.light-theme .btn-submit:hover,
+.light-theme .btn-primary:hover {
+  background-color: #9d7c36 !important;
+  border-color: #9d7c36 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(179, 143, 68, 0.3) !important;
+}
+
+/* Checkmarks & Vector Bullet Indicators */
+.light-theme .security-check-icon-wrapper {
+  background: rgba(0, 86, 163, 0.08) !important;
+  border-color: rgba(0, 86, 163, 0.2) !important;
+  color: #0056A3 !important;
+}
+
+.light-theme .checkmark-icon-wrapper {
+  background: rgba(179, 143, 68, 0.08) !important;
+  border-color: rgba(179, 143, 68, 0.2) !important;
+  color: #B38F44 !important;
+}
+
+/* Navigation Bar & Header Adjustments */
+.light-theme .navbar {
+  background: #FFFFFF !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+
+.light-theme .navbar.scrolled {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-bottom: 1px solid #CBD5E1 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+.light-theme .nav-link {
+  color: #475569 !important;
+}
+
+.light-theme .nav-link:hover {
+  color: #0F172A !important;
+}
+
+.light-theme .btn-navbar {
+  background-color: #B38F44 !important;
+  border-color: #B38F44 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(179, 143, 68, 0.15) !important;
+}
+
+.light-theme .btn-navbar:hover {
+  background-color: #9d7c36 !important;
+  border-color: #9d7c36 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 20px rgba(179, 143, 68, 0.25) !important;
+}
+
+/* Footer Section Overrides */
+.light-theme .footer-section {
+  background: #F8FAFC !important;
+  border-top: 1px solid #E2E8F0 !important;
+}
+
+.light-theme .footer-col h4 {
+  color: #0F172A !important;
+}
+
+.light-theme .footer-links-list a {
+  color: #475569 !important;
+}
+
+.light-theme .footer-links-list a:hover {
+  color: #0F172A !important;
+}
+
+.light-theme .footer-contact-item span,
+.light-theme .footer-contact-item a {
+  color: #475569 !important;
+}
+
+.light-theme .footer-contact-item a:hover {
+  color: #0F172A !important;
+}
+
+.light-theme .footer-social-link {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+  color: #475569 !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+.light-theme .footer-social-link:hover {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+  color: #0F172A !important;
+  border-color: #B38F44 !important;
+}
+
+.light-theme .footer-bottom {
+  border-top-color: #E2E8F0 !important;
+}
+
+/* Sweep hardcoded slate color across all sections for rich light-mode contrast */
+.light-theme .hero-description,
+.light-theme .about-description,
+.light-theme .about-description-secondary,
+.light-theme .about-stat-desc,
+.light-theme .capabilities-subtitle,
+.light-theme .matrix-card-desc,
+.light-theme .it-list-item span,
+.light-theme .tab-desc-paragraph-custom,
+.light-theme .lifecycle-subtitle,
+.light-theme .step-card p,
+.light-theme .regional-description-custom,
+.light-theme .contact-desc,
+.light-theme .contact-pathway-card p,
+.light-theme .contact-form-sub,
+.light-theme .partners-subtitle,
+.light-theme .footer-bio {
+  color: #475569 !important; /* Premium Slate Gray copy */
+}
+
+/* Specific Whitepaper Spacers, Icons, Buttons, and Labels Overrides */
+
+/* Mobile Nav Button Hover Contrast */
+.light-theme .btn-mobile-cta:hover {
+  background-color: #9d7c36 !important;
+  border-color: #9d7c36 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 20px rgba(179, 143, 68, 0.25) !important;
+}
+
+/* IT Architecture Square bullet node pop adjustments */
+.light-theme .it-icon {
+  color: #0056A3 !important;
+  border: 2px solid #0056A3 !important;
+  background-color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+  box-shadow: 0 2px 6px rgba(0, 86, 163, 0.1) !important;
+}
+
+.light-theme .it-column:hover .it-icon {
+  color: #FFFFFF !important;
+  border-color: #B38F44 !important;
+  background-color: #B38F44 !important;
+  fill: #B38F44 !important;
+  box-shadow: 0 2px 10px rgba(179, 143, 68, 0.2) !important;
+}
+
+/* Regional Scale accessibility failure fix: clean faint blue background with Institutional Blue checkmark */
+.light-theme .checkmark-icon-wrapper {
+  background: #E0E7FF !important;
+  border-color: rgba(0, 86, 163, 0.25) !important;
+  color: #0056A3 !important;
+  box-shadow: 0 2px 6px rgba(0, 86, 163, 0.06) !important;
+}
+
+/* Contact Advisory Form labels */
+.light-theme .form-field label {
+  color: #64748B !important;
+}
+
+/* Capabilities carousel card body adjustments */
+.light-theme .matrix-card-text-body {
+  background-color: #FFFFFF !important;
+  border-top: 1px solid #E2E8F0 !important;
+}
+
+/* --- Premium Light Mode Visual Polish Overrides --- */
+
+/* 1. Hero Spacing & Grid visibility */
+.light-theme .hero-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(15, 23, 42, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.12) 1px, transparent 1px) !important;
+}
+
+/* 2. Hero Section Cards Readability */
+.light-theme .hero-card-label {
+  color: #64748B !important;
+}
+
+.light-theme .hero-card-desc {
+  color: #475569 !important;
+}
+
+/* 3. Capabilities Section Bright Images & Removed Overlays */
+.light-theme .matrix-card-visual-header {
+  background-color: #FFFFFF !important;
+}
+
+.light-theme .matrix-card-photo {
+  opacity: 0.95 !important;
+  filter: brightness(1) grayscale(0%) !important;
+}
+
+.light-theme .matrix-scroll-card:hover .matrix-card-photo {
+  opacity: 1 !important;
+  filter: brightness(1) grayscale(0%) !important;
+}
+
+.light-theme .matrix-card-visual-glow {
+  display: none !important;
+}
+
+.light-theme .matrix-card-grid-lines {
+  display: none !important;
+}
+
+/* 4. Checklist text colors (Security & Regional) */
+.light-theme .security-check-text {
+  color: #0F172A !important;
+}
+
+.light-theme .checkmark-point-text {
+  color: #0F172A !important;
+}
+
+.light-theme .security-check-icon-wrapper.wrapper-gold {
+  background: rgba(179, 143, 68, 0.08) !important;
+  border-color: rgba(179, 143, 68, 0.25) !important;
+  color: #B38F44 !important;
+}
+
+/* 5. Showcase image overlays & Badges */
+.light-theme .collage-card-overlay {
+  background: linear-gradient(180deg, transparent 40%, rgba(248, 250, 252, 0.65) 100%) !important;
+}
+
+.light-theme .single-showcase-img {
+  opacity: 0.95 !important;
+  filter: none !important;
+}
+
+.light-theme .prestige-single-image-container:hover .single-showcase-img {
+  opacity: 1 !important;
+}
+
+.light-theme .prestige-card-badge {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 86, 163, 0.25) !important;
+  color: #0056A3 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+.light-theme .prestige-card-badge.badge-gold {
+  color: #B38F44 !important;
+  border-color: rgba(179, 143, 68, 0.25) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* 6. IT Architecture hover & Title specificity */
+.light-theme .it-column:hover .it-list-item span {
+  color: #0F172A !important;
+}
+
+.light-theme .it-column-header h3 {
+  color: #0F172A !important;
+}
+
+/* 7. Footer hubs readability fixes */
+.light-theme .office-details strong {
+  color: #0F172A !important;
+}
+
+.light-theme .office-link:hover {
+  color: #0F172A !important;
+}
+
+/* 8. About section stats robust contrast */
+.light-theme .about-stat-number,
+.light-theme .about-stat-title {
+  color: #0F172A !important;
 }

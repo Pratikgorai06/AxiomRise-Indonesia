@@ -40,7 +40,6 @@ const ContactSection = () => {
 
   return (
     <div className="contact-section-wrapper" id="contact">
-      <div className="blueprint-pattern"></div>
       
       <section className="contact-section container">
         <div className="contact-layout">

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
@@ -11,6 +11,20 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
 function App() {
+  const [isLightTheme, setIsLightTheme] = useState(false);
+
+  const toggleTheme = () => {
+    setIsLightTheme(!isLightTheme);
+  };
+
+  useEffect(() => {
+    if (isLightTheme) {
+      document.body.classList.add('light-theme');
+    } else {
+      document.body.classList.remove('light-theme');
+    }
+  }, [isLightTheme]);
+
   useEffect(() => {
     const handleAnchorClick = (e) => {
       const target = e.target.closest('a');
@@ -54,7 +68,7 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar />
+      <Navbar isLightTheme={isLightTheme} toggleTheme={toggleTheme} />
       <HeroSection />
       <AboutSection />
       <CapabilitiesSection />

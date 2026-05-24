@@ -1,12 +1,11 @@
 import React from 'react';
 import './AboutSection.css';
-import { Building2, Scale, TrendingUp, ShieldCheck } from 'lucide-react';
+import { Handshake, Activity, Scale, ShieldCheck } from 'lucide-react';
 import teamImg from '../assets/indonesian_b2b_team.png';
 
 const AboutSection = () => {
   return (
     <section className="section about-section" id="about">
-      <div className="blueprint-pattern"></div>
       
       <div className="about-container container">
         {/* Row 1: Narrative & Team Showcase Frame */}
@@ -49,7 +48,7 @@ const AboutSection = () => {
           {/* Stat Box 1: Partners */}
           <div className="about-stat-card">
             <div className="about-stat-icon-wrapper">
-              <Building2 size={22} />
+              <Handshake size={22} />
             </div>
             <div>
               <span className="about-stat-number">15+</span>
@@ -61,7 +60,7 @@ const AboutSection = () => {
           {/* Stat Box 2: Uptime */}
           <div className="about-stat-card">
             <div className="about-stat-icon-wrapper">
-              <TrendingUp size={22} />
+              <Activity size={22} />
             </div>
             <div>
               <span className="about-stat-number">99.9%</span>

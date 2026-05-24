@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import { Globe, Mail, MapPin } from 'lucide-react';
+import { Globe, Mail, MapPin, Phone } from 'lucide-react';
 import axiomriseLogo from '../assets/image.png';
 
 const Footer = () => {
@@ -64,7 +64,21 @@ const Footer = () => {
               </div>
               <div className="office-details">
                 <strong>PT AxiomRise Teknologi Indonesia</strong>
-                <p>SCBD, Tower 2, Level 45, Kebayoran Baru, Jakarta Selatan</p>
+                <p>JL. Taman Kebon Sirih III No.11 A, Tanah Abang – Jakarta Pusat, Indonesia</p>
+              </div>
+            </div>
+
+            <div className="office-item">
+              <div className="office-icon">
+                <Phone size={16} />
+              </div>
+              <div className="office-details">
+                <strong>Corporate Phone</strong>
+                <p>
+                  <a href="tel:+62213156995" className="office-link">+6221-3156995</a>
+                  <br />
+                  <span style={{ opacity: 0.65, fontSize: '0.75rem' }}>(Mon–Fri, 9AM–6PM WIB)</span>
+                </p>
               </div>
             </div>
 
@@ -83,7 +97,9 @@ const Footer = () => {
                 <Mail size={16} />
               </div>
               <div className="office-details">
-                <a href="mailto:solutions@axiomrise.co.id" className="office-link">solutions@axiomrise.co.id</a>
+                <a href="mailto:contact@axiomrise.id" className="office-link">contact@axiomrise.id</a>
+                <br />
+                <a href="mailto:support@axiomrise.id" className="office-link">support@axiomrise.id</a>
               </div>
             </div>
           </div>

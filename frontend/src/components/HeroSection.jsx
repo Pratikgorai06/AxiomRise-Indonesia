@@ -6,6 +6,11 @@ import securityImg from '../assets/indonesia_security_center.png';
 import consultingImg from '../assets/business_consulting.png';
 import aseanImg from '../assets/asean_enterprise_corridor.png';
 
+// Partner Logos
+import cyverionLogo from '../assets/Partner logo/cyverion.png';
+import starshieldLogo from '../assets/Partner logo/starshield.png';
+import incallLogo from '../assets/Partner logo/axiomrise.png';
+
 const HeroSection = () => {
   const cardsContainerRef = useRef(null);
 
@@ -36,6 +41,14 @@ const HeroSection = () => {
       window.removeEventListener('resize', scrollToMiddle);
     };
   }, []);
+
+  const partnerLogos = [
+    { src: cyverionLogo, alt: "Cyverion" },
+    { src: starshieldLogo, alt: "Star Shield" },
+    { src: incallLogo, alt: "inCall Systems" }
+  ];
+
+  const marqueeLogos = [...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos];
 
   const cards = [
     {
@@ -72,24 +85,18 @@ const HeroSection = () => {
 
   return (
     <section className="hero-section" id="hero">
-      <div className="hero-glow-top" />
-      <div className="hero-glow-bottom-left" />
+      <div className="hero-grid-pattern" />
 
       <div className="hero-container container">
         {/* ── Centered Headline Block ── */}
         <div className="hero-top">
-          <div className="hero-kicker-badge">
-            • PT AXIOMRISE TEKNOLOGI INDONESIA
-          </div>
-
           <h1 className="hero-title">
             Bridging Corporate <span className="text-brand">Trust</span><br />
             with Deep-Tech Capabilities.
           </h1>
 
           <p className="hero-description">
-            Empowering ASEAN enterprise architectures with premium consulting,
-            cyber-resiliency frameworks, and high-performance digital business models.
+            Empowering ASEAN enterprises with premium consulting and cyber-resilient architectures.
           </p>
         </div>
 
@@ -128,6 +135,17 @@ const HeroSection = () => {
           <a href="#contact" className="hero-bottom-cta-link">
             Schedule a Consultation <ArrowUpRight size={15} />
           </a>
+        </div>
+
+        {/* ── Auto-scrolling infinite partner logo marquee ── */}
+        <div className="partners-marquee-container">
+          <div className="partners-marquee-track">
+            {marqueeLogos.map((logo, idx) => (
+              <div key={idx} className="partner-logo-wrapper">
+                <img src={logo.src} alt={logo.alt} className="partner-logo-img" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

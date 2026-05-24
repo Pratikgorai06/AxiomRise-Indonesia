@@ -17,7 +17,6 @@ const RegionalImpactSection = () => {
 
   return (
     <section className="regional-section" id="regional">
-      <div className="blueprint-pattern"></div>
       
       <div className="container">
         <div className="regional-grid-layout">

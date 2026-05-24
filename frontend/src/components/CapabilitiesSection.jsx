@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './CapabilitiesSection.css';
-import { 
-  Compass, Settings, Lock, ShoppingBag, 
+import {
+  Compass, Settings, Lock, ShoppingBag,
   PackageCheck, Zap, Users2, Handshake, HeartPulse,
   ChevronLeft, ChevronRight
 } from 'lucide-react';
@@ -21,6 +21,8 @@ const CapabilitiesSection = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState('right');
 
   const capabilities = [
     {
@@ -99,7 +101,7 @@ const CapabilitiesSection = () => {
         setActiveSlide(0);
         return;
       }
-      
+
       const percentage = scrollLeft / maxScrollLeft;
       const index = Math.min(
         Math.round(percentage * (capabilities.length - 1)),
@@ -122,6 +124,52 @@ const CapabilitiesSection = () => {
     };
   }, []);
 
+  // Back-and-forth automated scrolling track with hover pause
+  useEffect(() => {
+    if (isHovered) return;
+
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const autoScroll = () => {
+      const { scrollLeft, scrollWidth, clientWidth } = container;
+      const maxScrollLeft = scrollWidth - clientWidth;
+
+      if (maxScrollLeft <= 0) return;
+
+      if (scrollDirection === 'right') {
+        if (scrollLeft + clientWidth >= scrollWidth - 15) {
+          setScrollDirection('left');
+          container.scrollTo({
+            left: scrollLeft - 300,
+            behavior: 'smooth'
+          });
+        } else {
+          container.scrollTo({
+            left: scrollLeft + 300,
+            behavior: 'smooth'
+          });
+        }
+      } else {
+        if (scrollLeft <= 15) {
+          setScrollDirection('right');
+          container.scrollTo({
+            left: scrollLeft + 300,
+            behavior: 'smooth'
+          });
+        } else {
+          container.scrollTo({
+            left: scrollLeft - 300,
+            behavior: 'smooth'
+          });
+        }
+      }
+    };
+
+    const interval = setInterval(autoScroll, 2500);
+    return () => clearInterval(interval);
+  }, [isHovered, scrollDirection]);
+
   const handleScroll = (direction) => {
     if (scrollContainerRef.current) {
       const { scrollLeft, clientWidth } = scrollContainerRef.current;
@@ -138,7 +186,7 @@ const CapabilitiesSection = () => {
       const container = scrollContainerRef.current;
       const { scrollWidth, clientWidth } = container;
       const maxScrollLeft = scrollWidth - clientWidth;
-      
+
       if (maxScrollLeft > 0) {
         const targetScrollLeft = (index / (capabilities.length - 1)) * maxScrollLeft;
         container.scrollTo({
@@ -151,8 +199,7 @@ const CapabilitiesSection = () => {
 
   return (
     <div className="capabilities-section-wrapper" id="capabilities">
-      <div className="blueprint-pattern-dark"></div>
-      
+
       <section className="capabilities-section container">
         <div className="capabilities-header-row">
           <div className="capabilities-title-area">
@@ -166,7 +213,7 @@ const CapabilitiesSection = () => {
           </div>
 
           <div className="capabilities-nav-buttons">
-            <button 
+            <button
               className={`nav-arrow-btn ${!canScrollLeft ? 'disabled' : ''}`}
               onClick={() => handleScroll('left')}
               disabled={!canScrollLeft}
@@ -174,7 +221,7 @@ const CapabilitiesSection = () => {
             >
               <ChevronLeft size={20} />
             </button>
-            <button 
+            <button
               className={`nav-arrow-btn ${!canScrollRight ? 'disabled' : ''}`}
               onClick={() => handleScroll('right')}
               disabled={!canScrollRight}
@@ -184,17 +231,22 @@ const CapabilitiesSection = () => {
             </button>
           </div>
         </div>
-        
-        <div className="capabilities-scroll-track" ref={scrollContainerRef}>
+
+        <div
+          className="capabilities-scroll-track"
+          ref={scrollContainerRef}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           {capabilities.map((cap, idx) => (
             <div key={idx} className="matrix-scroll-card premium-glass-card">
-              
+
               {/* Card visual header (B2B Photo) with glowing outlines and corner icon badge */}
               <div className="matrix-card-visual-header">
                 <img src={cap.img} alt={cap.title} className="matrix-card-photo" />
                 <div className="matrix-card-grid-lines"></div>
                 <div className="matrix-card-visual-glow"></div>
-                
+
                 {/* Translucent corner icon badge */}
                 <div className={`matrix-card-icon-badge ${cap.colorClass}`}>
                   {cap.icon}

@@ -32,7 +32,6 @@ const TransformationLifecycle = () => {
 
   return (
     <div className="lifecycle-section-wrapper" id="lifecycle">
-      <div className="blueprint-pattern-dark"></div>
       
       <section className="lifecycle-section container">
         <div className="lifecycle-header">

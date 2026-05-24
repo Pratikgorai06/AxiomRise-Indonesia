@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
 import axiomriseLogo from '../assets/image.png';
 
-const Navbar = () => {
+const Navbar = ({ isLightTheme, toggleTheme }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -51,18 +51,29 @@ const Navbar = () => {
           <a href="#regional" className="nav-link">Regional</a>
         </div>
 
-        {/* Action Button */}
-        <div className="navbar-actions">
-          <a href="#contact" className="btn btn-navbar">
-            Consult Architect
-            <ArrowUpRight size={16} />
-          </a>
-        </div>
+        {/* Desktop Actions & Theme Toggle & Mobile Trigger Group */}
+        <div className="navbar-actions-group">
+          <button 
+            className="theme-toggle-btn" 
+            onClick={toggleTheme} 
+            aria-label="Toggle Light/Dark Theme"
+          >
+            {isLightTheme ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
 
-        {/* Mobile Hamburger Menu Toggle */}
-        <button className="mobile-toggle" onClick={toggleMobileMenu} aria-label="Toggle Menu">
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          {/* Action Button */}
+          <div className="navbar-actions">
+            <a href="#contact" className="btn btn-navbar">
+              Consult Architect
+              <ArrowUpRight size={16} />
+            </a>
+          </div>
+
+          {/* Mobile Hamburger Menu Toggle */}
+          <button className="mobile-toggle" onClick={toggleMobileMenu} aria-label="Toggle Menu">
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer Menu */}

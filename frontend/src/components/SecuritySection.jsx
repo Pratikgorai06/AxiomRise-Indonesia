@@ -29,7 +29,6 @@ const SecuritySection = () => {
 
   return (
     <section className="security-section" id="security">
-      <div className="blueprint-pattern-dark"></div>
       
       <div className="container">
         {/* Section Header with Segmented Switcher */}
